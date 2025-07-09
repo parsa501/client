@@ -7,6 +7,7 @@ import MyEnrollments from "./pages/MyEnrollments";
 import Player from "./pages/Player";
 import Loading from "./components/Loading";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/player/:courseId" element={<Player />} />
         <Route path="/loading/:path" element={<Loading />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
