@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export default function CoursesSection() {
      const {allCourses} = useContext(AppContext)
-     const items=allCourses.slice(0,4).map((course,index)=>
+     const items=allCourses?.slice(0,4)?.map((course,index)=>
          <CourseCard key={index} course={course} />)
  return (
     <div className='py-16 md:px-40 px-8'>
