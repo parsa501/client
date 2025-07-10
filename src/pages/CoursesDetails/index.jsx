@@ -9,7 +9,7 @@ import YouTube from 'react-youtube'
 export default function CoursesDetails() {
  const {id} = useParams()
 
-  //const [courseData, setCourseData] = useState(null)
+  
   const [courseData, setCourseData] = useState(null)
   const [openSections, setOpenSections] = useState({})
   const [isAlreadyEnrolled, setIsAlreadyEnrolled] = useState(false)
