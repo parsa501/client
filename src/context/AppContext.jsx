@@ -30,14 +30,14 @@ export const AppContextProvider = (props) =>{
 
      //function to calculate average rating of course
      const calculateRating = (course) =>{
-        if(course.courseRatings.length === 0){
+        if(course?.courseRatings?.length === 0){
             return 0;
         }
         let totalRating = 0
-        course.courseRatings.forEach((rating) =>{
+        course?.courseRatings?.forEach((rating) =>{
             totalRating += rating.rating
         })
-        return totalRating/course.courseRatings.length
+        return totalRating/course?.courseRatings?.length
      }
 
      //function to claculate course chapter time
