@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 export default function App() {
   return (
     <div className="text-default min-h-screen bg-white">
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/course-list" element={<CoursesList />} />
@@ -22,7 +22,7 @@ export default function App() {
         <Route path="/player/:courseId" element={<Player />} />
         <Route path="/loading/:path" element={<Loading />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
