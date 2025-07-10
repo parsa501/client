@@ -1,13 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import CoursesList from "./pages/CoursesList";
-import CoursesDetails from "./pages/CoursesDetails";
-import MyEnrollments from "./pages/MyEnrollments";
-import Player from "./pages/Player";
-import Loading from "./components/Loading";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import {Home,CoursesList,CoursesDetails,MyEnrollments,Player} from "./pages"
+import {Loading,Navbar,Footer} from "./components"
 
 export default function App() {
   return (
