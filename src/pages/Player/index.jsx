@@ -32,14 +32,8 @@ export default function Player() {
   useEffect(()=>{
     getCourseData()
   },[enrolledCourses])
- return (
-    <>
-    <div className='p-4 sm:p-10 flex flex-col-reverse md:grid md:grid-cols-2 gap-10 md:px-36'>
-      {/*left column */}
-      <div className='text-gray-800'>
-        <h2 className='text-xl font-semibold'>Course Structure</h2>
-  <div className='pt-5'>
-                {courseData && courseData.courseContent.map((chapter, index)=>(
+
+  const items=courseData && courseData?.courseContent?.map((chapter, index)=>(
                   <div key={index} className='border border-gr bg-white mb-2 rounded'>
                     <div  className='flex items-center justify-between px-4 py-3 cursor-pointer select-none'>
                       <div className='flex items-center gap-2' onClick={()=> toggleSection(index)}>
@@ -70,7 +64,15 @@ export default function Player() {
                       </ul>
                     </div>
                   </div>
-                ))}
+                ))
+ return (
+    <>
+    <div className='p-4 sm:p-10 flex flex-col-reverse md:grid md:grid-cols-2 gap-10 md:px-36'>
+      {/*left column */}
+      <div className='text-gray-800'>
+        <h2 className='text-xl font-semibold'>Course Structure</h2>
+  <div className='pt-5'>
+                {items}
               </div>
               <div className='flex items-center gap-2 py-3 mt-10'>
                 <h1 className='text-xl font-bold'>Rate this Course</h1>
