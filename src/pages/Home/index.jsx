@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "./Hero";
 import Companies from "./Companies";
 import CoursesSection from "./CoursesSection";
+import TestimonialsSection from "./TestimonialsSection";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <Companies/>
       <CoursesSection/>
+      <TestimonialsSection/>
     </div>
   );
 }
