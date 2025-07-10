@@ -27,8 +27,8 @@ export default function CourseCard({ course }) {
                 key={i}
                 src={
                   i < Math.floor(calculateRating(course))
-                    ? assets.star
-                    : assets.star_blank
+                    ? assets?.star
+                    : assets?.star_blank
                 }
                 alt=""
                 className="w-3.5 h-3.5"

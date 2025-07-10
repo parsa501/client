@@ -16,7 +16,7 @@ export default function CoursesList() {
 
       input
         ? setFilteredCourse(
-            tempCourses.filter((item) =>
+            tempCourses?.filter((item) =>
               item?.courseTitle?.toLowerCase()?.includes(input?.toLowerCase())
             )
           )
@@ -51,7 +51,7 @@ export default function CoursesList() {
             <p>{input}</p>
             <img
               src={assets?.cross_icon}
-              alt=""
+              alt="cross_icon"
               className="cursor-pointer"
               onClick={() => navigate("/course-list")}
             />

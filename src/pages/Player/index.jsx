@@ -15,7 +15,7 @@ export default function Player() {
 
   const getCourseData = () => {
     enrolledCourses.map((course) => {
-      if (course._id === courseId) {
+      if (course?._id === courseId) {
         setCourseData(course);
       }
     });
@@ -42,15 +42,15 @@ export default function Player() {
               className={`transform transition-transform ${
                 openSections[index] ? "rotate-180" : ""
               }`}
-              src={assets.down_arrow_icon}
+              src={assets?.down_arrow_icon}
               alt="arrow icon"
             />
             <p className="font-medium md:text-base text-sm">
-              {chapter.chapterTitle}
+              {chapter?.chapterTitle}
             </p>
           </div>
           <p className="text-sm md:text-default">
-            {chapter.chapterContent.length} lectures -{" "}
+            {chapter?.chapterContent?.length} lectures -{" "}
             {calculateChapterTime(chapter)}
           </p>
         </div>
@@ -61,17 +61,17 @@ export default function Player() {
           }`}
         >
           <ul className="list-disc md:pl-10 pl-4 pr-4 py-2 text-gray-600 border-t border-gray-300">
-            {chapter.chapterContent.map((lecture, i) => (
+            {chapter?.chapterContent?.map((lecture, i) => (
               <li className="flex items-start gap-2 py-1" key={i}>
                 <img
-                  src={false ? assets.blue_tick_icon : assets.play_icon}
+                  src={false ? assets?.blue_tick_icon : assets?.play_icon}
                   alt="play icon"
                   className="w-4 h-4 mt-1"
                 />
                 <div className="flex items-center justify-between w-full text-gray-800 text-xs md:text-default">
-                  <p>{lecture.lectureTitle}</p>
+                  <p>{lecture?.lectureTitle}</p>
                   <div className="flex gap-2">
-                    {lecture.lectureUrl && (
+                    {lecture?.lectureUrl && (
                       <p
                         onClick={() =>
                           setPlayerData({
@@ -86,7 +86,7 @@ export default function Player() {
                       </p>
                     )}
                     <p>
-                      {humanizeDuration(lecture.lectureDuration * 60 * 1000, {
+                      {humanizeDuration(lecture?.lectureDuration * 60 * 1000, {
                         units: ["h", "m"],
                       })}
                     </p>
@@ -116,13 +116,13 @@ export default function Player() {
           {playerData ? (
             <div>
               <YouTube
-                videoId={playerData.lectureUrl.split("/").pop()}
+                videoId={playerData?.lectureUrl?.split("/").pop()}
                 iframeClassName="w-full aspect-video"
               />
               <div className="flex justify-between items-center mt-1">
                 <p>
-                  {playerData.chapter}.{playerData.lecture}{" "}
-                  {playerData.lectureTitle}
+                  {playerData?.chapter}?.{playerData?.lecture}{" "}
+                  {playerData?.lectureTitle}
                 </p>
                 <button className="text-blue-600">
                   {false ? "completed" : "Mark completed"}
@@ -130,7 +130,7 @@ export default function Player() {
               </div>
             </div>
           ) : (
-            <img src={courseData ? courseData.courseThumbnail : ""} alt="" />
+            <img src={courseData ? courseData?.courseThumbnail : ""} alt="" />
           )}
         </div>
       </div>

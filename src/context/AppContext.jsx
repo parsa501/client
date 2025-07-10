@@ -33,15 +33,15 @@ export const AppContextProvider = (props) => {
   //function to claculate course chapter time
   const calculateChapterTime = (chapter) => {
     let time = 0;
-    chapter.chapterContent.map((lecture) => (time += lecture.lectureDuration));
+    chapter?.chapterContent?.map((lecture) => (time += lecture?.lectureDuration));
     return humanizeDuration(time * 60 * 1000, { nits: ["h", "m"] });
   };
 
   //function to calculate course duration
   const calculateCourseDuration = (course) => {
     let time = 0;
-    course.courseContent.map((chapter) =>
-      chapter.chapterContent.map((lecture) => (time += lecture.lectureDuration))
+    course?.courseContent?.map((chapter) =>
+      chapter?.chapterContent?.map((lecture) => (time += lecture?.lectureDuration))
     );
 
     return humanizeDuration(time * 60 * 1000, { nits: ["h", "m"] });
@@ -50,9 +50,9 @@ export const AppContextProvider = (props) => {
   // function to calculate total no of lectures in course
   const calculateNoOfLectures = (course) => {
     let totalLectures = 0;
-    course.courseContent.forEach((chapter) => {
-      if (Array.isArray(chapter.chapterContent)) {
-        totalLectures += chapter.chapterContent.length;
+    course.courseContent?.forEach((chapter) => {
+      if (Array.isArray(chapter?.chapterContent)) {
+        totalLectures += chapter?.chapterContent?.length;
       }
     });
     return totalLectures;
@@ -83,6 +83,6 @@ export const AppContextProvider = (props) => {
   };
 
   return (
-    <AppContext.Provider value={value}>{props.children}</AppContext.Provider>
+    <AppContext.Provider value={value}>{props?.children}</AppContext.Provider>
   );
 };

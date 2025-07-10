@@ -15,7 +15,7 @@ export default function SearchBar({ data }) {
       className="max-w-xl w-full md:h-14 h-12 flex items-center bg-white border border-gray-500/20 rounded"
     >
       <img
-        src={assets.search_icon}
+        src={assets?.search_icon}
         alt="search_icon"
         className="md:w-auto w-10 px-3"
       />

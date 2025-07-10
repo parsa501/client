@@ -24,7 +24,7 @@ export default function CoursesDetails() {
   } = useContext(AppContext);
 
   const fetchCourseData = async () => {
-    const findCourse = allCourses.find((course) => course._id === id);
+    const findCourse = allCourses.find((course) => course?._id === id);
     setCourseData(findCourse);
   };
 
@@ -47,15 +47,15 @@ export default function CoursesDetails() {
             className={`transform transition-transform ${
               openSections[index] ? "rotate-180" : ""
             }`}
-            src={assets.down_arrow_icon}
+            src={assets?.down_arrow_icon}
             alt="arrow icon"
           />
           <p className="font-medium md:text-base text-sm">
-            {chapter.chapterTitle}
+            {chapter?.chapterTitle}
           </p>
         </div>
         <p className="text-sm md:text-default">
-          {chapter.chapterContent.length} lectures -{" "}
+          {chapter?.chapterContent?.length} lectures -{" "}
           {calculateChapterTime(chapter)}
         </p>
       </div>
@@ -69,18 +69,18 @@ export default function CoursesDetails() {
           {chapter?.chapterContent?.map((lecture, i) => (
             <li className="flex items-start gap-2 py-1" key={i}>
               <img
-                src={assets.play_icon}
+                src={assets?.play_icon}
                 alt="play icon"
                 className="w-4 h-4 mt-1"
               />
               <div className="flex items-center justify-between w-full text-gray-800 text-xs md:text-default">
-                <p>{lecture.lectureTitle}</p>
+                <p>{lecture?.lectureTitle}</p>
                 <div className="flex gap-2">
-                  {lecture.isPreviewFree && (
+                  {lecture?.isPreviewFree && (
                     <p
                       onClick={() =>
                         setPlayerData({
-                          videoId: lecture.lectureUrl.split("/").pop(),
+                          videoId: lecture?.lectureUrl.split("/").pop(),
                         })
                       }
                       className="text-blue-500 cursor-pointer"
@@ -89,7 +89,7 @@ export default function CoursesDetails() {
                     </p>
                   )}
                   <p>
-                    {humanizeDuration(lecture.lectureDuration * 60 * 1000, {
+                    {humanizeDuration(lecture?.lectureDuration * 60 * 1000, {
                       units: ["h", "m"],
                     })}
                   </p>
@@ -111,7 +111,7 @@ export default function CoursesDetails() {
         {/* left column */}
         <div className="max-w-xl z-10 text-gray-500">
           <h1 className="md:text-course-details-heading-large text-course-details-heading-small font-semibold text-gray-800">
-            {courseData.courseTitle}
+            {courseData?.courseTitle}
           </h1>
           <p
             className="pt-4 md:text-base text-sm"
@@ -143,7 +143,7 @@ export default function CoursesDetails() {
             </p>
 
             <p>
-              {courseData.enrolledStudents.length}
+              {courseData?.enrolledStudents.length}
               {courseData?.enrolledStudents.length > 1 ? "students" : "student"}
             </p>
           </div>
@@ -162,7 +162,7 @@ export default function CoursesDetails() {
             </h3>
             <p
               className="pt-3 rich-text"
-              dangerouslySetInnerHTML={{ __html: courseData.courseDescription }}
+              dangerouslySetInnerHTML={{ __html: courseData?.courseDescription }}
             ></p>
           </div>
         </div>
@@ -171,19 +171,19 @@ export default function CoursesDetails() {
         <div className="max-w-course-card z-10 shadow-custom-card rounded-t md:rounded-none overflow-hidden bg-white min-w-[300px] sm:min-w-[420px]">
           {playerData ? (
             <YouTube
-              videoId={playerData.videoId}
+              videoId={playerData?.videoId}
               opts={{ playerVars: { autoplay: 1 } }}
               iframeClassName="w-full aspect-video"
             />
           ) : (
-            <img src={courseData.courseThumbnail} alt="" />
+            <img src={courseData?.courseThumbnail} alt="" />
           )}
 
           <div className="p-5">
             <div className="flex items-center gap-2">
               <img
                 className="w-3.5"
-                src={assets.time_left_clock_icon}
+                src={assets?.time_left_clock_icon}
                 alt="left clock"
               />
               <p className="text-red-500">
@@ -194,16 +194,16 @@ export default function CoursesDetails() {
               <p className="text-gray-800 md:text-4xl text-2xl font-semibold">
                 {currency}
                 {(
-                  courseData.coursePrice -
-                  (courseData.discount * courseData.coursePrice) / 100
+                  courseData?.coursePrice -
+                  (courseData?.discount * courseData?.coursePrice) / 100
                 ).toFixed(2)}
               </p>
               <p className="md:text-lg text-gray-500 line-through">
                 {currency}
-                {courseData.coursePrice}
+                {courseData?.coursePrice}
               </p>
               <p className="md:text-lg text-gray-500">
-                {courseData.discount}% off
+                {courseData?.discount}% off
               </p>
             </div>
 

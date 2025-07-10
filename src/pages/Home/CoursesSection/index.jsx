@@ -15,7 +15,7 @@ export default function CoursesSection() {
       </h2>
       <p className="text-sm md:text-base text-gray-500 mt-3">
         Discover our top-rated courses across various categories. From coding
-        and design to <br></br> businesss and wellness, our courses are crafted
+        and design to<br/> businesss and wellness, our courses are crafted
         to deliver results.
       </p>
 

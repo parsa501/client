@@ -9,7 +9,7 @@ export default function Hero() {
         Empower your future with the courses designed to{" "}
         <span className="text-blue-600">fit your choice.</span>
         <img
-          src={assets.sketch}
+          src={assets?.sketch}
           alt="Sketch"
           className="md:block hidden absolute -bottom-7 right-0"
         />{" "}

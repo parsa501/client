@@ -17,7 +17,7 @@ export default function Navbar() {
     >
       <img
         onClick={() => navigate("/")}
-        src={assets.logo}
+        src={assets?.logo}
         alt="logo"
         className="w-28 lg:w-32 cursor-pointer"
       />
@@ -68,7 +68,7 @@ export default function Navbar() {
           <UserButton />
         ) : (
           <button onClick={() => openSignIn()}>
-            <img src={assets.user_icon} alt="" />
+            <img src={assets?.user_icon} alt="user_icon" />
           </button>
         )}
       </div>
